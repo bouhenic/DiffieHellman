@@ -17,3 +17,7 @@ openssl pkeyutl -derive -inkey privatekey1.pem -peerkey publickey2.pem -out shar
 openssl pkeyutl -derive -inkey privatekey2.pem -peerkey publickey1.pem -out sharedkey2.bin
 
 diff sharedkey1.bin sharedkey2.bin && echo "Les clés partagées sont identiques" || echo "Les clés partagées sont différentes"
+
+echo "Mon message secret" | openssl enc -aes-256-cbc -salt -a -pass pass:MaClePartagee
+
+echo "MessageChiffre" | openssl enc -d -aes-256-cbc -a -pass pass:MaClePartagee
