@@ -1,3 +1,6 @@
+docker build -t monimageubuntu .
+
+
 openssl dhparam -out dhparams.pem 2048
 
 openssl genpkey -paramfile dhparams.pem -out privatekey1.pem
