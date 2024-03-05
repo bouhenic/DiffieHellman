@@ -1,4 +1,4 @@
-![Alt text](diffi.draw.svg)
+![Alt text](diffi.drawio.svg)
 
 docker build -t monimageubuntu .
 
