@@ -1,3 +1,5 @@
+![Alt text](diffi.draw.svg)
+
 docker build -t monimageubuntu .
 
 openssl dhparam -out dhparams.pem 2048
