@@ -1,4 +1,4 @@
-docker build -t monimageubuntu ./
+docker build -t monimageubuntu .
 
 openssl dhparam -out dhparams.pem 2048
 
