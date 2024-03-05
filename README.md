@@ -18,8 +18,14 @@ openssl pkeyutl -derive -inkey privatekey2.pem -peerkey publickey1.pem -out shar
 
 diff sharedkey1.bin sharedkey2.bin && echo "Les clés partagées sont identiques" || echo "Les clés partagées sont différentes"
 
-echo "Mon message secret" | openssl enc -aes-256-cbc -salt -a -pbkdf2 -iter 10000 -pass pass:MaClePartagee
+hexkey=$(xxd -p -c 32 sharedkey2.bin | tr -d '\n')
+
+openssl enc -aes-256-cbc -salt -in message.txt -out message.enc -pass pass:"$hexkey" -pbkdf2 -iter 10000
+
+hexkey=$(xxd -p -c 32 sharedkey2.bin | tr -d '\n')
+
+openssl enc -aes-256-cbc -d -in message.enc -out message-dechiffre.txt -pass pass:"$hexkey" -pbkdf2 -iter 10000
 
 
-echo "MessageChiffre" | openssl enc -d -aes-256-cbc -a -pbkdf2 -iter 10000 -pass pass:MaClePartagee
+
 
