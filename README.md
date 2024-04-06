@@ -26,3 +26,5 @@ openssl pkeyutl -derive -inkey privatekey2.pem -peerkey publickey1.pem -out shar
 ```bash
 diff sharedkey1.bin sharedkey2.bin && echo "Les clés partagées sont identiques" || echo "Les clés partagées sont différentes"
 ```
+## ÉCHANGE D'UN SECRET AVEC DIFFIE-HELLMAN ENTRE DEUX HOSTS Á TRAVERS UN SOCKET TCP :
+![Alt text](diffie.svg)
